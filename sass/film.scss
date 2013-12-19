@@ -1,0 +1,429 @@
+@import "base";
+
+$black: #000000;
+$white: #FFFFFF;
+$red: #FF0000;
+$green: #00FF00;
+
+// $font-color: #41525a;
+// $menu-bg-color: #ffecca;
+// $slider-bg-color: #d0c3b3;
+
+$font-color: #FFFFFF;
+$menu-bg-color: #000000;
+$slider-bg-color: #FFFFFF;
+
+$global-width: 980px;
+$column-width: 60px;
+$gutter: 20px;
+
+$line-height: 18px;
+$header-height: $line-height * 3;
+$footer-height: $line-height * 3;
+
+html, body {
+    background-color: $black;
+	font-family: 'arvoregular';
+}
+
+a, a:hover, a:focus, a:visited {
+	color: $font-color;
+	text-decoration: none;
+	outline: none;
+}
+
+.centered-container {
+	@include clearfix();
+
+	width: $global-width - $gutter;
+	margin: 0 auto;
+	padding-left: $gutter;
+
+	@for $i from 1 through 12 {
+		.col#{$i} {
+			float: left;
+			width: $column-width * $i + $gutter * ($i - 1);
+			margin-right: $gutter;
+		}
+	}
+}
+
+.container {
+
+	.close-button {
+		position: absolute;
+		top: 0px;
+		right: $line-height;
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+	}
+
+	.header-container {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: $header-height;
+		// -4px to be safe and not display the scroll bar
+		line-height: $header-height - 4px;
+		background-color: $menu-bg-color;
+
+		display: none;
+
+		//@todo remove when site is not in beta status anymore
+		height: $line-height * 2;
+		line-height: $line-height;
+		padding: $line-height / 2 0;
+		display: block;
+
+		// font-family: 'titilliumregular';
+		color: $font-color;
+
+		a {
+			font-family: 'titilliumregular';
+			color: $font-color;
+		}
+
+		.italic {
+			font-family: 'arvoitalic';
+		}
+
+		.col12 {
+			text-align: center;
+		}
+	}
+
+    .audio-container {
+		display: none;
+	}
+
+    .video-container {
+        overflow: hidden;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+
+        // debug
+        // background-color: $red;
+
+        #video {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 1920px;
+            height: 1080px;
+        }
+
+		.intro-fg {
+			display: none;
+			position: absolute;
+			left: 0px;
+			top: 20%;
+            width: 921px;
+            height: 83px;
+		}
+
+		.video-loading {
+			display: none;
+			position: absolute;
+			right: 72px;
+			top: 72px;
+			width: 32px;
+			height: 32px;
+		}
+
+		.video-loading-text {
+			display: none;
+			position: absolute;
+			right: 72px;
+			top: 72px;
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+			text-align: center;
+			color: $white;
+			font-size: 8px;
+			cursor: default;
+		}
+
+		.video-interactivity {
+			display: none;
+			position: absolute;
+			right: 72px;
+			top: 72px;
+			width: 15px;
+			height: 15px;
+		}
+
+		.video-fg {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+            width: 1920px;
+            height: 1080px;
+		}
+
+		.video-cover {
+			display: none;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+            width: 1920px;
+            height: 1080px;
+		}
+
+		.video-title {
+			display: none;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+            width: 1920px;
+            height: 1080px;
+
+			.text {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: auto;
+				text-align: center;
+				font-size: 80px;
+				color: $white;
+				font-family: arial, helvetica, sans;
+				cursor: default;
+			}
+		}
+
+		.video-interface {
+			display: none;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+            width: 1920px;
+            height: 1080px;
+
+			.video-interface-bg {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				background-color: $menu-bg-color;
+				@include transparency(0.5);
+			}
+
+			.icon {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 64px;
+				height: 64px;
+				cursor: pointer;
+			}
+		}
+    }
+
+	.chapters-container {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+
+		&.minimized {
+			left: -100%;
+		}
+
+		.chapters-bg {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			width: 100%;
+			height: 100%;
+
+			background-color: $black;
+		}
+
+		.chapters {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+
+			.cover {
+				float: left;
+				cursor: pointer;
+				width: 240px;
+				height: 1080px;
+			}
+
+			a {
+				font-family: 'titilliumregular';
+				color: $font-color;
+			}
+
+			a:hover {
+				font-weight: bold;
+			}
+		}
+	}
+
+	.about-container {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		&.minimized {
+			left: -100%;
+		}
+
+		.about-bg {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			width: 100%;
+			height: 100%;
+
+			background-color: $black;
+			@include transparency(0.85);
+		}
+
+		.about {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+
+			color: $white;
+			font-size: 20px;
+			font-family: 'arvoregular';
+			text-align: justify;
+
+			.centered-container {
+				padding-top: 10%;
+			}
+		}
+	}
+
+	.credits-container {
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		&.minimized {
+			left: -100%;
+		}
+
+		.credits-bg {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			width: 100%;
+			height: 100%;
+
+			background-color: $black;
+			@include transparency(0.85);
+		}
+
+		.credits {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+
+			color: $white;
+			font-family: 'arvoregular';
+
+			.centered-container {
+				.col12 {
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.manual-container {
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		width: 100%;
+		height: $footer-height;
+		// -4px to be safe and not display the scroll bar
+		line-height: $footer-height - 4px;
+		background-color: $menu-bg-color;
+
+		display: none;
+
+		font-family: 'arvoregular';
+		color: $font-color;
+
+		.col12 {
+			text-align: center;
+		}
+	}
+
+	.footer-container {
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		width: 100%;
+		height: $footer-height;
+		// -4px to be safe and not display the scroll bar
+		line-height: $footer-height - 4px;
+		background-color: $menu-bg-color;
+
+		display: none;
+
+		h1 {
+			font-size: 30px;
+			margin: 0;
+			vertical-align: middle;
+			display: inline-block;
+			text-transform: uppercase;
+
+			a {
+				font-family: 'titilliumregular';
+				color: $font-color;
+			}
+		}
+
+		ul {
+			float: right;
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			vertical-align: middle;
+			display: inline-block;
+			text-transform: uppercase;
+			font-size: 18px;
+
+			li {
+				float: left;
+				margin-left: 30px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				a {
+					font-family: 'titilliumregular';
+					color: $font-color;
+				}
+			}
+		}
+	}
+}
+

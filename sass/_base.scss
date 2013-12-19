@@ -1,0 +1,148 @@
+/**
+ * source:
+ * using SASS to convert/calculate css sizes from px to em, px to percent and em to px; also has function to remove units / (Design in pixels then convert it to em or percent)
+ * https://gist.github.com/moyarich/3260638
+ */
+@function remove-unit($target) {
+	$one: 1;
+	@if not unitless($target) {
+		//find out the unit of measurement being used
+		@if (unit($target) == "px") {$one: 1px;}
+		@elseif (unit($target) == "em") {$one: 1em;}
+		@elseif (unit($target) == "%") {$one: 1%;}
+		// dividing by the same unit forces sass to return a value with no unit
+		@return $target / $one ;
+	}
+	@else {
+		@return $target;
+	}
+}
+
+/**
+ * rem based layout
+ *
+ * Examples
+ * 
+ * - Use a pixel value with a rem fallback for font-size, padding, margins, etc.
+ *         padding: 5px 0;
+ *         padding: 0.357142857rem 0; (5 / $rem-base)
+ * 
+ * - Set a font-size and then set a line-height based on the font-size
+ *         font-size: 16px
+ *         font-size: 1.142857143rem; (16 / $rem-base)
+ *         line-height: 1.5; ($line-height / 16)
+ *
+ * Vertical spacing
+ *
+ * Vertical spacing between most elements should use 24px or 48px
+ * to maintain vertical rhythm:
+ *
+ * .my-new-div {
+ *         margin: 24px 0;
+ *         margin: 1.714285714rem 0; ( 24 / $rem-base )
+ * }
+ */
+
+$rem-base: 14px;
+$line-height: 24px;
+
+@function p2rem($pixels) {
+	$result: #{remove-unit($pixels) / remove-unit($rem-base)}rem;
+	// @debug $result;
+	@return $result;
+}
+
+@function l2rem($pixels) {
+	$result: #{remove-unit($line-height) / remove-unit($pixels)};
+	// @debug $result;
+	@return $result;
+}
+
+@function rem-font-size($pixels, $line-height-parameter: 1.2) {
+	$result: p2rem(remove-unit($pixels))/$line-height-parameter;
+	// @debug $result;
+	@return $result;
+}
+
+@function rem-font-size-line-height($pixels) {
+	$result: p2rem(remove-unit($pixels))/l2rem(remove-unit($pixels));
+	// @debug $result;
+	@return $result;
+}
+
+@mixin debug-border {
+	border: 1px solid #FF0000;
+}
+
+@mixin debug-background {
+	background-color: #00FF00;
+}
+
+@mixin transparency($opacity: 0.50) {
+	$opacity_percent: $opacity * 100;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity_percent})" ;
+	-khtml-opacity: $opacity;
+	-moz-opacity: $opacity;
+	filter: alpha(opacity=#{$opacity_percent}) ;
+	opacity: $opacity;
+}
+
+@mixin center-h {
+	margin: 0 auto;
+}
+
+@mixin css-bold {
+	font-weight: bold;
+}
+
+.css-bold {
+	@include css-bold;
+}
+
+@mixin css-italic {
+	font-style: italic;
+}
+
+.css-italic {
+	@include css-italic;
+}
+
+@mixin inline-block {
+	display: inline-block;
+}
+
+.inline-block {
+	@include inline-block;
+}
+
+@mixin clear-both {
+	clear: both;
+}
+
+.clear-both {
+	@include clear-both;
+}
+
+.hidden {
+	display: none;
+}
+
+@mixin clearfix {
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		display: table;
+		line-height: 0;
+		content: "";
+	}   
+
+	&:after {
+		clear:both;
+	}   
+}
+
+.clearfix {
+	@include clearfix;
+}
+

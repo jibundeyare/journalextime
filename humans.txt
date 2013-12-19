@@ -1,0 +1,23 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Daishi Kaszer -- Creative coder -- https://twitter.com/daishikaszer
+
+# THANKS
+
+    Mozilla for Popcorn.js
+    Anton Koovit for Arvo font
+    Accademia di Belle Arti Urbino for Titillium font
+    fontsquirrel.com for the web font generator
+    ajaxload.info for the gif spinner
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr
+    Popcorn.js
+    Arvo font
+    Titillium font
+
