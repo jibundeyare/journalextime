@@ -81,7 +81,7 @@
 				<span class="italic">Firefox</span>
 				-->
 				Ce site est encore en version bêta. Les séquences vidéos ne sont actuellement pas visibles avec <span class="italic">Internet Explorer</span>.<br />
-				La version <span class="italic">IE</span> arrive très prochainement. Toutes nos excuses pour la gêne occasionnée.
+				La version <span class="italic">IE</span> arrive très prochainement.
 			</div>
 		</div>
 	</div>

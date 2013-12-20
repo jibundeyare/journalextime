@@ -67,6 +67,10 @@
 	Donato Giuliani<br />
 	Christine Chagnon<br />
 	<br />
+	<img src="/img/250px-Logo_dk13.svg.png" alt="Dunkerque 2013 Capitale Régionale de la Culture" /><br />
+	<br />
 	Le code source de ce projet est disponible sous licence libre<br />
 	<a target="_blank" href="https://github.com/jibundeyare/journalextime">https://github.com/jibundeyare/journalextime</a><br />
+	<br />
+	Contact : <a href="mailto:blouses.bleues@orange.fr">blouses.bleues@orange.fr</a><br />
 </div>

@@ -347,6 +347,10 @@ a, a:hover, a:focus, a:visited {
 			color: $white;
 			font-family: 'arvoregular';
 
+			a {
+				color: $white;
+			}
+
 			.centered-container {
 				.col12 {
 					text-align: center;

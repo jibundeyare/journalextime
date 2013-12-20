@@ -407,6 +407,9 @@ a, a:hover, a:focus, a:visited {
   color: white;
   font-family: 'arvoregular';
 }
+.container .credits-container .credits a {
+  color: white;
+}
 .container .credits-container .credits .centered-container .col12 {
   text-align: center;
 }

@@ -3,9 +3,9 @@ var videos = [
 		id: "intro",
 		title: "Intro",
 		cover: "img/cover/intro.png",
-		mp4: "http://your-domain.com/video/intro.mp4",
-		ogv: "http://your-domain.com/video/intro.ogv",
-		webm: "http://your-domain.com/video/intro.webm",
+		mp4: "http://your-cdn.com/video/intro.mp4",
+		ogv: "http://your-cdn.com/video/intro.ogv",
+		webm: "http://your-cdn.com/video/intro.webm",
 		loop: true,
 		enabled: 'true',
 		cues: [
@@ -78,9 +78,9 @@ var videos = [
 		id: "tresor",
 		title: "Trésor",
 		cover: "img/covers/tresor.png",
-		mp4: "http://your-domain.com/video/Tr%C3%AAsor-MPEG-4%20-%20Diffusion%20web.mp4",
-		ogv: "http://your-domain.com/video/Tr%C3%AAsor-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/Tr%C3%AAsor-MPEG-4%20-%20Diffusion%20web.webm",
+		mp4: "http://your-cdn.com/video/Tr%C3%AAsor-MPEG-4%20-%20Diffusion%20web.mp4",
+		ogv: "http://your-cdn.com/video/Tr%C3%AAsor-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/Tr%C3%AAsor-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -96,7 +96,7 @@ var videos = [
 				timecode: 0,
 				callback: function() {
 					clearAllAudioSources();
-					loadAudio('http://your-domain.com/audio/tresor');
+					loadAudio('http://your-cdn.com/audio/tresor');
 				}
 			}
 		],
@@ -541,9 +541,9 @@ var videos = [
 		id: "images-de-guerre-guerre-d-images",
 		title: "Images de guerre, guerre d'images",
 		cover: "img/covers/images-de-guerre-guerre-d-images.png",
-		mp4: "http://your-domain.com/video/guerre%20d'images-MPEG-4%20-%20Diffusion%20web.mp4",
-		ogv: "http://your-domain.com/video/S%C3%A9q%20guerre-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/S%C3%A9q%20guerre-MPEG-4%20-%20Diffusion%20web.webm",
+		mp4: "http://your-cdn.com/video/guerre%20d'images-MPEG-4%20-%20Diffusion%20web.mp4",
+		ogv: "http://your-cdn.com/video/S%C3%A9q%20guerre-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/S%C3%A9q%20guerre-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -1602,9 +1602,9 @@ var videos = [
 		id: "london-calling",
 		title: "London calling",
 		cover: "img/covers/london-calling.png",
-		mp4: "http://your-domain.com/video/london%20calling-MPEG-4%20-%20Diffusion%20web.mp4",
-		ogv: "http://your-domain.com/video/DJ%20bunker%20final-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/DJ%20bunker%20final-MPEG-4%20-%20Diffusion%20web.webm",
+		mp4: "http://your-cdn.com/video/london%20calling-MPEG-4%20-%20Diffusion%20web.mp4",
+		ogv: "http://your-cdn.com/video/DJ%20bunker%20final-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/DJ%20bunker%20final-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -1701,9 +1701,9 @@ var videos = [
 		id: "mon-amour-carnaval",
 		title: "Mon amour... Carnaval",
 		cover: "img/covers/mon-amour-carnaval.png",
-		mp4: "http://your-domain.com/video/Carna%202.mp4",
-		ogv: "http://your-domain.com/video/S%C3%A9q%20carna-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/S%C3%A9q%20carna-MPEG-4%20-%20Diffusion%20web.webm",
+		mp4: "http://your-cdn.com/video/Carna%202.mp4",
+		ogv: "http://your-cdn.com/video/S%C3%A9q%20carna-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/S%C3%A9q%20carna-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -1719,7 +1719,7 @@ var videos = [
 				timecode: 0,
 				callback: function() {
 					clearAllAudioSources();
-					loadAudio('http://your-domain.com/audio/mon-amour-carnaval-molly-bloom-chante');
+					loadAudio('http://your-cdn.com/audio/mon-amour-carnaval-molly-bloom-chante');
 				}
 			},
 			{
@@ -1727,7 +1727,7 @@ var videos = [
 				timecode: 325,
 				callback: function() {
 					clearAllAudioSources();
-					loadAudio('http://your-domain.com/audio/mon-amour-carnaval-mon-amour');
+					loadAudio('http://your-cdn.com/audio/mon-amour-carnaval-mon-amour');
 				}
 			}
 		],
@@ -1975,12 +1975,12 @@ var videos = [
 		]
 	},
 	{
-		id: "cap-sur-l-islande",
+		id: "cap-vers-l-islande",
 		title: "Cap sur l'Islande",
-		cover: "img/covers/cap-sur-l-islande.png",
-		mp4: "http://your-domain.com/video/Cap%20vers%20l'islande-MPEG-4%20-%20Diffusion%20web.mp4",
-		ogv: "http://your-domain.com/video/S%C3%A9q%20p%C3%AAcheur-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/S%C3%A9q%20p%C3%AAcheur-MPEG-4%20-%20Diffusion%20web.webm",
+		cover: "img/covers/cap-vers-l-islande.png",
+		mp4: "http://your-cdn.com/video/Cap%20vers%20l'islande-MPEG-4%20-%20Diffusion%20web.mp4",
+		ogv: "http://your-cdn.com/video/S%C3%A9q%20p%C3%AAcheur-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/S%C3%A9q%20p%C3%AAcheur-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -1996,7 +1996,7 @@ var videos = [
 				timecode: 0,
 				callback: function() {
 					clearAllAudioSources();
-					loadAudio('http://your-domain.com/audio/cap-sur-l-islande');
+					loadAudio('http://your-cdn.com/audio/cap-vers-l-islande');
 				}
 			}
 		],
@@ -2031,9 +2031,9 @@ var videos = [
 		id: "comores",
 		title: "Comores",
 		cover: "img/covers/comores.png",
-		mp4: "http://your-domain.com/video/comore%202.mp4",
-		ogv: "http://your-domain.com/video/comore%202.ogv",
-		webm: "http://your-domain.com/video/comore%202.webm",
+		mp4: "http://your-cdn.com/video/comore%202.mp4",
+		ogv: "http://your-cdn.com/video/comore%202.ogv",
+		webm: "http://your-cdn.com/video/comore%202.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -2051,9 +2051,9 @@ var videos = [
 		id: "traversee",
 		title: "Traversée",
 		cover: "img/covers/traversee.png",
-		mp4: "http://your-domain.com/video/Travers%C3%A9e.mp4",
-		ogv: "http://your-domain.com/video/S%C3%A9q%20container-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/S%C3%A9q%20container-MPEG-4%20-%20Diffusion%20web.webm",
+		mp4: "http://your-cdn.com/video/Travers%C3%A9e.mp4",
+		ogv: "http://your-cdn.com/video/S%C3%A9q%20container-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/S%C3%A9q%20container-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
@@ -2069,7 +2069,7 @@ var videos = [
 				timecode: 0,
 				callback: function() {
 					clearAllAudioSources();
-					loadAudio('http://your-domain.com/audio/london-calling');
+					loadAudio('http://your-cdn.com/audio/london-calling');
 				}
 			}
 		],
@@ -2104,9 +2104,9 @@ var videos = [
 		id: "a-travers-la-ville",
 		title: "À travers la ville",
 		cover: "img/covers/a-travers-la-ville.png",
-		mp4: "http://your-domain.com/video/A%20travers%20la%20ville%202.mp4",
-		ogv: "http://your-domain.com/video/A%20travers%20la%20ville%202-MPEG-4%20-%20Diffusion%20web.ogv",
-		webm: "http://your-domain.com/video/A%20travers%20la%20ville%202-MPEG-4%20-%20Diffusion%20web.webm",
+		mp4: "http://your-cdn.com/video/A%20travers%20la%20ville%202.mp4",
+		ogv: "http://your-cdn.com/video/A%20travers%20la%20ville%202-MPEG-4%20-%20Diffusion%20web.ogv",
+		webm: "http://your-cdn.com/video/A%20travers%20la%20ville%202-MPEG-4%20-%20Diffusion%20web.webm",
 		loop: false,
 		enabled: 'true',
 		cues: [
