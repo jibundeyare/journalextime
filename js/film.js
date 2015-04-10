@@ -145,6 +145,40 @@ var fitElementToScreen = function(selector) {
 };
 
 /**
+ * resize an element to fit full page using the width
+ */
+var fitElementToPageUsingWidth = function(selector) {
+
+    var element = jQuery(selector);
+
+    var originalWidth = element.width();
+    var originalHeight = element.height();
+
+    element.width(jQuery(document).width());
+
+    var height = getHeightFromWidth(originalWidth, originalHeight, jQuery(document).width());
+
+    element.height(height);
+};
+
+/**
+ * resize an element to fit full page using the height
+ */
+var fitElementToPageUsingHeight = function(selector) {
+
+    var element = jQuery(selector);
+
+    var originalWidth = element.width();
+    var originalHeight = element.height();
+
+    element.height(jQuery(document).height());
+
+    var width = getWidthFromHeight(originalWidth, originalHeight, jQuery(document).height());
+
+    element.width(width);
+};
+
+/**
  * verticaly center an element in the browser window
  */
 var verticalyCenterElement = function(selector, position) {
@@ -266,7 +300,7 @@ var onMousemove = function() {
 
 var onClickHomeButton = function() {
 	$(".home-button").click(function(event) {
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -280,7 +314,7 @@ var onClickHomeButton = function() {
 
 var onClickFilmButton = function() {
 	$(".film-button").click(function(event) {
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -295,7 +329,7 @@ var onClickFilmButton = function() {
 var onClickChaptersButton = function() {
 
 	$(".chapters-button").click(function(event) {
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -319,7 +353,7 @@ var onClickChaptersButton = function() {
 var onClickCreditsButton = function() {
 
 	$(".credits-button").click(function(event) {
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -344,7 +378,7 @@ var onClickCreditsButton = function() {
 var onClickAboutButton = function() {
 
 	$(".about-button").click(function(event) {
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -394,7 +428,7 @@ var onEventChapter = function() {
 
 	$(".cover").on('mouseenter', function(event) {
 
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -409,7 +443,7 @@ var onEventChapter = function() {
 
 	$(".cover").on('mouseleave', function(event) {
 
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -422,7 +456,7 @@ var onEventChapter = function() {
 
 	$(".cover").click(function(event) {
 
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -657,12 +691,11 @@ var loadVideo = function(videoPlayerContainerSelector, videoPlayerSelector, mp4,
 		popcorn.load();
 	}
 
-	var newVideoPlayer = $('<video id="video" controls="controls"></video>');
-	newVideoPlayer.append($('<source src="' + escapeHtml(mp4) + '" type="video/mp4"></source>'));
-	newVideoPlayer.append($('<source src="' + escapeHtml(ogv) + '" type="video/ogg"></source>'));
-	newVideoPlayer.append($('<source src="' + escapeHtml(webm) + '" type="video/webm"></source>'));
+	// load mp4, ogg and webm
+	// var newVideoPlayer = $('<video id="video" preload="auto" autoplay="true" autobuffer="true"><source src="' + escapeHtml(mp4) + '" type="video/mp4"></source><source src="' + escapeHtml(ogv) + '" type="video/ogg"></source><source src="' + escapeHtml(webm) + '" type="video/webm"></source><div>Votre navigateur n\'arrive pas à lire la vidéo.</div></video>');
 
-	newVideoPlayer.append($('<div>Votre navigateur n\'arrive pas à lire la vidéo.</div>'));
+	// load mp4 only
+	var newVideoPlayer = $('<video id="video" preload="auto" autoplay="true" autobuffer="true"><source src="' + escapeHtml(mp4) + '" type="video/mp4"></source><div>Votre navigateur n\'arrive pas à lire la vidéo.</div></video>');
 
 	//@hack check that mp4 loading has failed
 	newVideoPlayer.children('source').each(function(index, value) {
@@ -737,8 +770,9 @@ var playVideo = function(id, videos) {
 		$('.video-loading-text').hide();
 		$('.video-loading').hide();
 
-		fitElementToScreen('.video-title');
-		verticalyCenterElement('.video-title .text');
+		// video title is not needed anymore
+		// fitElementToScreen('.video-title');
+		// verticalyCenterElement('.video-title .text');
 
 		fitElementToScreen('.video-interface');
 		centerElement('.icon.play');
@@ -814,8 +848,9 @@ var playVideo = function(id, videos) {
 							$('.video-loading-text').fadeOut();
 							$('.video-loading').fadeOut();
 
-							$('.video-title .text').text('');
-							$('.video-title').fadeOut(4 * 1000);
+							// video title is not needed anymore
+							// $('.video-title .text').text('');
+							// $('.video-title').fadeOut(4 * 1000);
 						}
 
 						popcorn.play();
@@ -830,16 +865,17 @@ var playVideo = function(id, videos) {
 			// console.log('loadedmetadata');
 			// console.log(mp4Failed);
 
-			//@hack check that mp4 loading has failed
-			if (id != 'intro') {
-				$('.video-title .text').text(video.title);
-				verticalyCenterElement('.video-title .text');
-				$('.video-title').stop().fadeIn(4 * 1000);
-			}
-			else {
-				$('.video-title .text').text('');
-				$('.video-title').hide();
-			}
+			// video title is not needed anymore
+			// //@hack check that mp4 loading has failed
+			// if (id != 'intro') {
+			// 	$('.video-title .text').text(video.title);
+			// 	verticalyCenterElement('.video-title .text');
+			// 	$('.video-title').stop().fadeIn(4 * 1000);
+			// }
+			// else {
+			// 	$('.video-title .text').text('');
+			// 	$('.video-title').hide();
+			// }
 
 			popcorn.pause();
 		});
@@ -860,13 +896,15 @@ var playVideo = function(id, videos) {
 
 			//@hack sometimes 'progress' event is never fired and without this hack the video is never started
 			if (!videoStarted) {
+
 				if (id != 'intro') {
 					$('.video-loading-text').text('');
 					$('.video-loading-text').fadeOut();
 					$('.video-loading').fadeOut();
 
-					$('.video-title .text').text('');
-					$('.video-title').fadeOut(4 * 1000);
+					// video title is not needed anymore
+					// $('.video-title .text').text('');
+					// $('.video-title').fadeOut(4 * 1000);
 				}
 
 				popcorn.play();
@@ -945,8 +983,9 @@ var onKeypress = function() {
 				$('.cover' + numberOfchapters).width($('.cover' + numberOfchapters).width() + pixelGap);
 			}
 
-			fitElementToScreen('.video-title');
-			verticalyCenterElement('.video-title .text');
+			// video title is not needed anymore
+			// fitElementToScreen('.video-title');
+			// verticalyCenterElement('.video-title .text');
 
 			fitElementToScreen('.video-interface');
 			centerElement('.icon.play');
@@ -1048,7 +1087,7 @@ $(document).ready(function () {
 	/*
 	// get polygon coordinates in 1920 x 1080
 	$(".video-fg").click(function(event){
-		event.preventDefault()
+		event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation();
 
@@ -1089,8 +1128,9 @@ $(window).resize(function () {
 		$('.cover' + numberOfchapters).width($('.cover' + numberOfchapters).width() + pixelGap);
 	}
 
-    fitElementToScreen('.video-title');
-	verticalyCenterElement('.video-title .text');
+	// video title is not needed anymore
+    // fitElementToScreen('.video-title');
+	// verticalyCenterElement('.video-title .text');
 
     fitElementToScreen('.video-interface');
 	centerElement('.icon.play');

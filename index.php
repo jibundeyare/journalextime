@@ -29,7 +29,11 @@
 		<audio id="audio" preload="auto"></audio>
 	</div>
     <div class="video-container">
-        <video id="video" preload="auto"></video>
+        <video id="video" preload="auto" autoplay="true" autobuffer="true">
+            <source id="video-mp4" src="" type="video/mp4">
+            <source id="video-ogv" src="" type="video/ogg">
+            <source id="video-webm" src="" type="video/webm">
+		</video>
 		<img class="video-loading" src="img/ajax-loader.gif" alt="" title="" />
 		<div class="video-loading-text"></div>
 		<img class="video-interactivity" src="img/dot-red.png" alt="" title="" />
